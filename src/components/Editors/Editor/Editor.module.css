@@ -6,7 +6,9 @@
 }
 
 .editor__h2 {
+  margin-bottom: 2rem;
 }
+
 @media screen and (min-width: 800px) {
   .editor {
     padding: 3rem;
