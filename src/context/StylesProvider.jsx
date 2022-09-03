@@ -4,40 +4,13 @@ import StylesContext from "./StylesContext";
 const StylesProvider = ({ children }) => {
   const [result, setResult] = useState("");
 
-  const initialState = {
-    "padding-left": "10",
-    "padding-right": "10",
-    "padding-top": "10",
-    "padding-bottom": "10",
-    "background-color": "#000",
-    color: "#000",
-  };
+  const initialState = {};
 
   function btnReducer(state, action) {
     const { type } = action;
     const { name, value } = action.payload;
 
     if (type === "changeButtonStyles") {
-      console.log(type, name, value);
-
-      if (name == "paddingX") {
-        return {
-          ...state,
-          "padding-left": value,
-          "padding-right": value,
-        };
-      } else if (name == "paddingY") {
-        return {
-          ...state,
-          "padding-top": value,
-          "padding-bottom": value,
-        };
-      } else {
-        return {
-          ...state,
-          [name]: value,
-        };
-      }
     }
   }
 
