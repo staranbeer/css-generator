@@ -10,5 +10,5 @@ const root = createRoot(rootElement);
 root.render(
   <StylesProvider>
     <App />
-  </StylesProvider>,
+  </StylesProvider>
 );
