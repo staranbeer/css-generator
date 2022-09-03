@@ -1,52 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeButtonStyles } from "./features/buttonSlice/buttonSlice";
+import { useSelector } from "react-redux";
+import ButtonEditor from "./features/buttonSlice/ButtonEditor";
 
 const App = () => {
   const { styles } = useSelector((state) => state.button);
-  const dispatch = useDispatch();
-
-  const handleChange = (e) => {
-    const { name: property, value } = e.target;
-    dispatch(changeButtonStyles({ property, value }));
-  };
-
   return (
-    <div className="">
-      <div className="">
-        <div>paddingX {styles["paddingX"]}</div>
-        <input
-          type="range"
-          value={styles["paddingX"]}
-          name="paddingX"
-          onChange={handleChange}
-        />
-
-        <div>paddingY {styles["paddingY"]}</div>
-        <input
-          type="range"
-          value={styles["paddingY"]}
-          name="paddingY"
-          onChange={handleChange}
-        />
-
-        <div>background-color: {styles["background-color"]}</div>
-        <input
-          type="color"
-          name="background-color"
-          value={styles["background-color"]}
-          onChange={handleChange}
-        />
-
-        <div>color: {styles.color}</div>
-        <input
-          type="color"
-          name="color"
-          value={styles["color"]}
-          onChange={handleChange}
-        />
+    <div className="max-w-6xl mx-auto  flex flex-col md:flex-row h-screen w-screen overflow-hidden">
+      <div className="max-w-lg md:max-w-full mx-auto flex-1 grid place-items-center px-4 lg:px-14">
+        <ButtonEditor />
       </div>
-      <div className="mt-10">
+      <div className="flex-1 grid place-items-center ">
         <pre>{JSON.stringify(styles, null, 2)}</pre>
       </div>
     </div>
