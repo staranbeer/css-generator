@@ -4,3 +4,9 @@
   height: 100%;
   width: 100%;
 }
+
+.result__toggle {
+  margin: 0 auto;
+  margin-top: 4rem;
+  display: block;
+}

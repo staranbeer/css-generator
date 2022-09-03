@@ -37,6 +37,30 @@ const ButtonEditor = () => {
           value={btnStyles["padding-top"]}
         />
       </div>
+      <div className={styles.button__control}>
+        <label htmlFor="background-color">background color</label>
+        <input
+          id="background-color"
+          type="color"
+          name="background-color"
+          onChange={(e) => {
+            handleChange(e.target.name, e.target.value);
+          }}
+          value={btnStyles["background-color"]}
+        />
+      </div>
+      <div className={styles.button__control}>
+        <label htmlFor="color">color</label>
+        <input
+          id="color"
+          type="color"
+          name="color"
+          onChange={(e) => {
+            handleChange(e.target.name, e.target.value);
+          }}
+          value={btnStyles["color"]}
+        />
+      </div>
     </div>
   );
 };

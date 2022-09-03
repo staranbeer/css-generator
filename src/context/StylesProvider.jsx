@@ -2,11 +2,15 @@ import React, { useEffect, useReducer, useState } from "react";
 import StylesContext from "./StylesContext";
 
 const StylesProvider = ({ children }) => {
+  const [result, setResult] = useState("");
+
   const initialState = {
     "padding-left": "10",
     "padding-right": "10",
     "padding-top": "10",
     "padding-bottom": "10",
+    "background-color": "#000",
+    color: "#000",
   };
 
   function btnReducer(state, action) {
@@ -50,19 +54,19 @@ const StylesProvider = ({ children }) => {
     // turn the styles object into a styles string
     let styles = Object.entries(btnStyles).map((value) => {
       if (types.number.includes(`${value}`.split(",")[0])) {
-        return `${`${value}`.split(",").join(": ")}px;`;
+        return `${`\n    ${value}`.split(",").join(": ")}px;`;
       } else {
-        return `${`${value}`.split(",").join(": ")};`;
+        return `${`\n    ${value}`.split(",").join(": ")};`;
       }
     });
-    styles = `.button {${styles.join(" ")}}`;
-
+    styles = `.button {${styles.join(" ")}\n}`;
+    setResult(styles);
     // change the styles in the DOM
     stylesElement.innerHTML = styles;
   }, [btnStyles]);
 
   return (
-    <StylesContext.Provider value={{ btnStyles, dispatch }}>
+    <StylesContext.Provider value={{ btnStyles, dispatch, result }}>
       {children}
     </StylesContext.Provider>
   );
