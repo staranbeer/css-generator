@@ -15,11 +15,11 @@
   input[type="range"],
   input[type="color"],
   select {
-    @apply w-full;
+    @apply w-full bg-white;
   }
 
   input[type="color"],
   select {
-    @apply h-10 border border-gray-800 p-1;
+    @apply h-10 border-2 border-blue-500 p-1;
   }
 }

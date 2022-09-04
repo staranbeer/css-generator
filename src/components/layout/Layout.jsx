@@ -3,9 +3,11 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className=" w-screen h-screen overflow-hidden">
+    <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Header />
-      <div className="overflow-hidden h-full">{children}</div>
+      <div className="relative w-full flex-1  overflow-hidden  grid grid-cols-2 ">
+        {children}
+      </div>
     </div>
   );
 };

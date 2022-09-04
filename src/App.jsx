@@ -9,8 +9,8 @@ const App = () => {
     <div className="">
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/button" element={<ButtonEditor />} />
+          <Route path="*" element={<div>Not found</div>} />
         </Routes>
       </Layout>
     </div>

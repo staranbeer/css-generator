@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ButtonResult from "../../components/layout/ButtonResult";
 import Menu, { MenuItem } from "../../components/utils/Menu";
+import ButtonResult from "./ButtonResult";
 import { changeButtonStyles } from "./buttonSlice";
 
 const ButtonEditor = () => {
@@ -14,21 +14,25 @@ const ButtonEditor = () => {
   };
 
   return (
-    <div className="overflow-hidden grid w-full h-full grid-cols-2">
-      <div className="p-10 overflow-auto ">
-        <h2 className="text-xl font-medium mt-4 ">
-          Use the controls below to style the component on your right.
-        </h2>
-        <p className="mt-3 text-gray-700">
-          Click on "Get CSS" when you're done.
-        </p>
-        <div className="overflow-y-scroll mt-12 w-full flex flex-col gap-2 ">
+    <>
+      <div className=" px-10 pt-8 border-r-2 w-full  mx-auto overflow-auto ">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-xl font-medium">
+            Use the controls below to style the component on your right.
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Click on "Get CSS" when you're done.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-8 space-y-3">
           {/* text */}
+
           <Menu isActive={true} title={"Text"}>
             <MenuItem
               label={"font-weight"}
               name="font weight"
-              value={styles["font-weight"]}
+              value={styles["font-weight"] || 400}
             >
               <select
                 name="font-weight"
@@ -96,7 +100,7 @@ const ButtonEditor = () => {
             <MenuItem
               name="color"
               label={"color"}
-              value={styles.color}
+              value={styles.color || "#000000"}
               className=""
             >
               <input
@@ -109,7 +113,7 @@ const ButtonEditor = () => {
             </MenuItem>
             <MenuItem
               name="background color"
-              value={styles["background-color"] || "#f2f2f2"}
+              value={styles["background-color"] || "#ffffff"}
               label={"background-color"}
             >
               <input
@@ -170,7 +174,7 @@ const ButtonEditor = () => {
             <MenuItem
               label="border-radius"
               name={"Border radius"}
-              value={styles["border-radius"]}
+              value={styles["border-radius"] || "4"}
             >
               <input
                 id="border-radius"
@@ -184,10 +188,10 @@ const ButtonEditor = () => {
           </Menu>
         </div>
       </div>
-      <div className="w-full h-full  grid place-items-center relative">
+      <div className="place-self-center">
         <ButtonResult />
       </div>
-    </div>
+    </>
   );
 };
 
