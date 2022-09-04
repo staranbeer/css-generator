@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Menu from "../../components/utils/Menu";
+import Menu, { MenuItem } from "../../components/utils/Menu";
 import { changeButtonStyles } from "./buttonSlice";
 
 const ButtonEditor = () => {
@@ -15,30 +15,30 @@ const ButtonEditor = () => {
 
   return (
     <div className="w-full flex flex-col gap-2 ">
+      {/* text */}
       <Menu
         activeMenu={activeMenu}
         setActiveMenu={setActiveMenu}
         title={"Text"}
       >
-        <div className="">
-          <label htmlFor="font-weight">
-            font-weight {styles["font-weight"]}
-          </label>
+        <MenuItem
+          label={"font-weight"}
+          name="font weight"
+          value={styles["font-weight"]}
+        >
           <select name="font-weight" id="font-weight" onChange={handleChange}>
             <option value="400">normal</option>
             <option value="300">light</option>
             <option value="700">bold</option>
           </select>
-        </div>
+        </MenuItem>
 
-        <div className="">
-          <label htmlFor="font-size">font-size {styles["font-size"]}</label>
-          <select
-            name="font-size"
-            value={styles["font-size"]}
-            id="font-size"
-            onChange={handleChange}
-          >
+        <MenuItem
+          label={"font-size"}
+          name="font size"
+          value={styles["font-size"]}
+        >
+          <select name="font-size" id="font-size" onChange={handleChange}>
             <option value="12">12</option>
             <option value="14">14</option>
             <option value="16">16</option>
@@ -48,16 +48,16 @@ const ButtonEditor = () => {
             <option value="40">40</option>
             <option value="48">48</option>
           </select>
-        </div>
+        </MenuItem>
       </Menu>
+      {/* padding */}
 
       <Menu
         activeMenu={activeMenu}
         setActiveMenu={setActiveMenu}
         title={"Padding"}
       >
-        <div className="">
-          <label htmlFor="paddingX">paddingX {styles["paddingX"]}</label>
+        <MenuItem name={"paddingX"} label="paddingX" value={styles["paddingX"]}>
           <input
             type="range"
             value={styles["paddingX"]}
@@ -65,26 +65,31 @@ const ButtonEditor = () => {
             id="paddingX"
             onChange={handleChange}
           />
-        </div>
+        </MenuItem>
 
-        <div>
-          <label htmlFor="paddingY">paddingY {styles["paddingY"]}</label>
+        <MenuItem name={"paddingY"} label="paddingY" value={styles["paddingY"]}>
           <input
             type="range"
             value={styles["paddingY"]}
-            id="paddingY"
             name="paddingY"
+            id="paddingY"
             onChange={handleChange}
           />
-        </div>
+        </MenuItem>
       </Menu>
+
+      {/* colors */}
       <Menu
         setActiveMenu={setActiveMenu}
         activeMenu={activeMenu}
         title={"Colors"}
       >
-        <div className="">
-          <label htmlFor="color">color: {styles.color}</label>
+        <MenuItem
+          name="color"
+          label={"color"}
+          value={styles.color}
+          className=""
+        >
           <input
             type="color"
             id="color"
@@ -92,11 +97,12 @@ const ButtonEditor = () => {
             value={styles["color"]}
             onChange={handleChange}
           />
-        </div>
-        <div>
-          <label htmlFor="background-color">
-            background-color: {styles["background-color"]}
-          </label>
+        </MenuItem>
+        <MenuItem
+          name="background color"
+          value={styles["background-color"]}
+          label={"background-color"}
+        >
           <input
             id="background-color"
             type="color"
@@ -104,17 +110,20 @@ const ButtonEditor = () => {
             value={styles["background-color"]}
             onChange={handleChange}
           />
-        </div>
+        </MenuItem>
       </Menu>
+      {/* border */}
+
       <Menu
         setActiveMenu={setActiveMenu}
         activeMenu={activeMenu}
         title={"Border"}
       >
-        <div className="">
-          <label htmlFor="border-color">
-            border-color: {styles["border-color"]}
-          </label>
+        <MenuItem
+          name="border color"
+          label="border-color"
+          value={styles["border-color"]}
+        >
           <input
             type="color"
             id="border-color"
@@ -122,11 +131,12 @@ const ButtonEditor = () => {
             value={styles["border-color"]}
             onChange={handleChange}
           />
-        </div>
-        <div>
-          <label htmlFor="border-width">
-            border-width: {styles["border-width"]}
-          </label>
+        </MenuItem>
+        <MenuItem
+          label={"border-width"}
+          name={"border-width"}
+          value={styles["border-width"]}
+        >
           <input
             id="border-width"
             type="range"
@@ -135,18 +145,19 @@ const ButtonEditor = () => {
             value={styles["border-width"]}
             onChange={handleChange}
           />
-        </div>
+        </MenuItem>
 
-        <div>
-          <label htmlFor="border-type">
-            border-type: {styles["border-type"]}
-          </label>
+        <MenuItem
+          label={"border-type"}
+          name="border type"
+          value={styles["border-type"]}
+        >
           <select name="border-type" onChange={handleChange} id="border-type">
             <option value="solid">Solid</option>
             <option value="dotted">Dotted</option>
             <option value="dashed">Dashed</option>
           </select>
-        </div>
+        </MenuItem>
         <div>
           <label htmlFor="border-radius">
             border-radius: {styles["border-radius"]}

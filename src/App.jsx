@@ -12,7 +12,7 @@ const App = () => {
             <ButtonEditor />
           </div>
         </div>
-        <div className="fw-full bg-white flex-1 grid place-items-center ">
+        <div className="relative w-full bg-white flex-1 grid place-items-center ">
           <ButtonResult />
         </div>
       </div>

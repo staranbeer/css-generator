@@ -25,7 +25,12 @@ const ButtonResult = () => {
 
   return (
     <>
-      <button className="button">style Me!</button>
+      <div className="">
+        <button className="button  ">style Me!</button>
+        <button className="absolute px-12 top-10 right-0  bg-blue-500 mt-10 text-center py-3 rounded-md font-bold text-white">
+          Get CSS
+        </button>
+      </div>
       {/* <pre>{resultStyles}</pre> */}
     </>
   );

@@ -3,6 +3,18 @@ import { motion } from "framer-motion";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import { useEffect } from "react";
 
+export const MenuItem = ({ label, name, value, children }) => {
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <label for={label}>{name}</label>
+        <div>{value}</div>
+      </div>
+      {children}
+    </div>
+  );
+};
+
 const MenuItems = ({ children }) => {
   return (
     <div className="grid mt-2 gap-2 sm:gap-8 md:gap-12 items-start  sm:grid-cols-2 mb-6">
