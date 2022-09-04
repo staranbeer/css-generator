@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ButtonResult from "./ButtonResult";
+import ButtonResult from "../../components/layout/ButtonResult";
 import Menu, { MenuItem } from "../../components/utils/Menu";
 import { changeButtonStyles } from "./buttonSlice";
 
@@ -15,15 +15,15 @@ const ButtonEditor = () => {
   };
 
   return (
-    <div className="grid w-full h-full grid-cols-2">
-      <div className="p-10 ">
-        <h2 className="text-xl font-medium">
+    <div className="overflow-hidden grid w-full h-full grid-cols-2">
+      <div className="p-10 overflow-auto ">
+        <h2 className="text-xl font-medium mt-4 ">
           Use the controls below to style the component on your right.
         </h2>
         <p className="mt-3 text-gray-700">
           Click on "Get CSS" when you're done.
         </p>
-        <div className="mt-6 w-full h-full flex flex-col gap-2 ">
+        <div className="overflow-y-scroll mt-12 w-full flex flex-col gap-2 ">
           {/* text */}
           <Menu
             activeMenu={activeMenu}
@@ -63,6 +63,7 @@ const ButtonEditor = () => {
               </select>
             </MenuItem>
           </Menu>
+
           {/* padding */}
 
           <Menu
@@ -121,14 +122,14 @@ const ButtonEditor = () => {
             </MenuItem>
             <MenuItem
               name="background color"
-              value={styles["background-color"]}
+              value={styles["background-color"] || "#f2f2f2"}
               label={"background-color"}
             >
               <input
                 id="background-color"
                 type="color"
                 name="background-color"
-                value={styles["background-color"]}
+                value={styles["background-color"] || "#f2f2f2"}
                 onChange={handleChange}
               />
             </MenuItem>
@@ -183,19 +184,20 @@ const ButtonEditor = () => {
                 <option value="dashed">Dashed</option>
               </select>
             </MenuItem>
-            <div>
-              <label htmlFor="border-radius">
-                border-radius: {styles["border-radius"]}
-              </label>
+            <MenuItem
+              label="border-radius"
+              name={"Border radius"}
+              value={styles["border-radius"]}
+            >
               <input
                 id="border-radius"
                 type="range"
                 max="60"
                 name="border-radius"
-                value={styles["border-radius"]}
+                value={styles["border-radius"] || "4"}
                 onChange={handleChange}
               />
-            </div>
+            </MenuItem>
           </Menu>
         </div>
       </div>

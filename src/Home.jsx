@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-screen h-screen grid place-items-center">
+    <div className="h-full w-full grid place-items-center">
       <div className="p-12 shadow-lg">
         <h1 className="text-lg">What would you like to Style today?</h1>
         <div className="mt-10">
