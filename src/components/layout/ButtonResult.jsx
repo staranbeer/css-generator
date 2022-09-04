@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import deriveStyles from "../../lib/deriveStyles";
 
-const ResultButton = () => {
+const ButtonResult = () => {
   const { styles } = useSelector((state) => state.button);
   const resultStyles = useMemo(() => {
     let derivedStyles = deriveStyles(styles);
 
     // turn the object key value pairs into a CSS ruleset
-    let result = ".result__button {\n";
+    let result = ".button {\n";
     for (let key in derivedStyles) {
       result += `    ${key}: ${derivedStyles[key]};\n`;
     }
@@ -25,10 +25,10 @@ const ResultButton = () => {
 
   return (
     <>
-      <button className="result__button">style Me!</button>
-      <pre>{resultStyles}</pre>
+      <button className="button">style Me!</button>
+      {/* <pre>{resultStyles}</pre> */}
     </>
   );
 };
 
-export default ResultButton;
+export default ButtonResult;

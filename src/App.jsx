@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ResultButton from "./components/layout/ResultButton";
+import ButtonResult from "./components/layout/ButtonResult";
 import ButtonEditor from "./features/buttonSlice/ButtonEditor";
 
 const App = () => {
-  const { styles } = useSelector((state) => state.button);
   return (
     <div className="">
       <div className="max-w-7xl  mx-auto  flex flex-col md:flex-row h-screen w-screen overflow-hidden">
@@ -14,7 +13,7 @@ const App = () => {
           </div>
         </div>
         <div className="fw-full bg-white flex-1 grid place-items-center ">
-          <ResultButton />
+          <ButtonResult />
         </div>
       </div>
     </div>

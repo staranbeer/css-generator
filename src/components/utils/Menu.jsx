@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const MenuItems = ({ children }) => {
   return (
-    <div className="grid mt-2 gap-2 sm:gap-6 items-start  sm:grid-cols-2 mb-6">
+    <div className="grid mt-2 gap-2 sm:gap-8 md:gap-12 items-start  sm:grid-cols-2 mb-6">
       {children}
     </div>
   );

@@ -5,7 +5,7 @@ import { changeButtonStyles } from "./buttonSlice";
 
 const ButtonEditor = () => {
   const { styles } = useSelector((state) => state.button);
-  const [activeMenu, setActiveMenu] = useState("Padding");
+  const [activeMenu, setActiveMenu] = useState("Text");
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -15,6 +15,42 @@ const ButtonEditor = () => {
 
   return (
     <div className="w-full flex flex-col gap-2 ">
+      <Menu
+        activeMenu={activeMenu}
+        setActiveMenu={setActiveMenu}
+        title={"Text"}
+      >
+        <div className="">
+          <label htmlFor="font-weight">
+            font-weight {styles["font-weight"]}
+          </label>
+          <select name="font-weight" id="font-weight" onChange={handleChange}>
+            <option value="400">normal</option>
+            <option value="300">light</option>
+            <option value="700">bold</option>
+          </select>
+        </div>
+
+        <div className="">
+          <label htmlFor="font-size">font-size {styles["font-size"]}</label>
+          <select
+            name="font-size"
+            value={styles["font-size"]}
+            id="font-size"
+            onChange={handleChange}
+          >
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            <option value="24">24</option>
+            <option value="32">32</option>
+            <option value="40">40</option>
+            <option value="48">48</option>
+          </select>
+        </div>
+      </Menu>
+
       <Menu
         activeMenu={activeMenu}
         setActiveMenu={setActiveMenu}
@@ -118,6 +154,7 @@ const ButtonEditor = () => {
           <input
             id="border-radius"
             type="range"
+            max="60"
             name="border-radius"
             value={styles["border-radius"]}
             onChange={handleChange}

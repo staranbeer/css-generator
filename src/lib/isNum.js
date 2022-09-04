@@ -4,6 +4,7 @@ const number = [
   "padding",
   "border-radius",
   "border-width",
+  "font-size",
 ];
 
 const isNum = (value) => {
