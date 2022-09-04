@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import { useEffect } from "react";
+import { useCallback } from "react";
 
 export const MenuItem = ({ label, name, value, children }) => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <label for={label}>{name}</label>
+        <label htmlFor={label}>{name}</label>
         <div>{value}</div>
       </div>
       {children}
@@ -31,15 +32,15 @@ const Menu = ({ title, children, activeMenu, setActiveMenu }) => {
     setIsOpen((i) => !i);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (activeMenu !== title) {
       setIsOpen(false);
     }
-  };
+  }, [activeMenu, title]);
 
   useEffect(() => {
     handleClose();
-  }, [activeMenu]);
+  }, [activeMenu, handleClose]);
 
   return (
     <>

@@ -21,18 +21,15 @@ const ButtonResult = () => {
   useEffect(() => {
     let stylesElement = document.getElementById("generated-styles");
     stylesElement.innerHTML = resultStyles;
-  }, [styles]);
+  }, [resultStyles]);
 
   return (
-    <>
-      <div className="">
-        <button className="button  ">style Me!</button>
-        <button className="absolute px-12 top-10 right-0  bg-blue-500 mt-10 text-center py-3 rounded-md font-bold text-white">
-          Get CSS
-        </button>
-      </div>
-      {/* <pre>{resultStyles}</pre> */}
-    </>
+    <div className="">
+      <button className="button  ">style Me!</button>
+      <button className="absolute top-4 right-4 px-10 py-3 text-white font-bold rounded-md bg-blue-500">
+        Get CSS
+      </button>
+    </div>
   );
 };
 
