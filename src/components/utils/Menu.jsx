@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { useEffect } from "react";
 
 const MenuItems = ({ children }) => {
   return (
@@ -10,17 +11,28 @@ const MenuItems = ({ children }) => {
   );
 };
 
-const Menu = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Menu = ({ title, children, activeMenu, setActiveMenu }) => {
+  const [isOpen, setIsOpen] = useState(activeMenu === title);
 
   const handleClick = () => {
+    setActiveMenu(title);
     setIsOpen((i) => !i);
   };
+
+  const handleClose = () => {
+    if (activeMenu !== title) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    handleClose();
+  }, [activeMenu]);
 
   return (
     <>
       <button
-        className={`menu__item block w-full py-4 border-2 border-white rounded  `}
+        className={`menu__item shadow-md  block w-full py-4 border  rounded  `}
         onClick={handleClick}
       >
         <div className="flex justify-between items-center px-4">

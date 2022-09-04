@@ -4,24 +4,22 @@
 
 @layer base {
   label {
-    @apply block my-2 text-gray-300 capitalize font-bold;
+    @apply block my-2 text-gray-500 capitalize font-bold;
+  }
+
+  input,
+  select {
+    @apply cursor-pointer;
   }
 
   input[type="range"],
-  input[type="color"] {
+  input[type="color"],
+  select {
     @apply w-full;
   }
 
-  input[type="color"] {
-    @apply h-8 border-4 border-white;
-  }
-  .menu__item:nth-of-type(2n - 1) {
-    @apply bg-teal-400;
-  }
-  .menu__item:nth-of-type(2n) {
-    @apply bg-orange-400;
-  }
-  .menu__item:nth-of-type(3n) {
-    @apply bg-yellow-400;
+  input[type="color"],
+  select {
+    @apply h-10 border border-gray-800 p-1;
   }
 }

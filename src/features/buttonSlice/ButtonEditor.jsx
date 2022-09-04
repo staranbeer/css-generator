@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Menu from "../../components/utils/Menu";
 import { changeButtonStyles } from "./buttonSlice";
 
 const ButtonEditor = () => {
   const { styles } = useSelector((state) => state.button);
+  const [activeMenu, setActiveMenu] = useState("Padding");
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -14,7 +15,11 @@ const ButtonEditor = () => {
 
   return (
     <div className="w-full flex flex-col gap-2 ">
-      <Menu title={"Padding"}>
+      <Menu
+        activeMenu={activeMenu}
+        setActiveMenu={setActiveMenu}
+        title={"Padding"}
+      >
         <div className="">
           <label htmlFor="paddingX">paddingX {styles["paddingX"]}</label>
           <input
@@ -37,7 +42,11 @@ const ButtonEditor = () => {
           />
         </div>
       </Menu>
-      <Menu title={"Colors"}>
+      <Menu
+        setActiveMenu={setActiveMenu}
+        activeMenu={activeMenu}
+        title={"Colors"}
+      >
         <div className="">
           <label htmlFor="color">color: {styles.color}</label>
           <input
@@ -61,7 +70,11 @@ const ButtonEditor = () => {
           />
         </div>
       </Menu>
-      <Menu title={"Border"}>
+      <Menu
+        setActiveMenu={setActiveMenu}
+        activeMenu={activeMenu}
+        title={"Border"}
+      >
         <div className="">
           <label htmlFor="border-color">
             border-color: {styles["border-color"]}
@@ -84,6 +97,29 @@ const ButtonEditor = () => {
             max="10"
             name="border-width"
             value={styles["border-width"]}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="border-type">
+            border-type: {styles["border-type"]}
+          </label>
+          <select name="border-type" onChange={handleChange} id="border-type">
+            <option value="solid">Solid</option>
+            <option value="dotted">Dotted</option>
+            <option value="dashed">Dashed</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="border-radius">
+            border-radius: {styles["border-radius"]}
+          </label>
+          <input
+            id="border-radius"
+            type="range"
+            name="border-radius"
+            value={styles["border-radius"]}
             onChange={handleChange}
           />
         </div>

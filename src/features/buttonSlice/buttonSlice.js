@@ -6,9 +6,9 @@ const buttonSlice = createSlice({
     styles: {
       paddingX: "20",
       paddingY: "10",
-      "background-color": "#000",
-      color: "#000",
-      "border-color": "#000",
+      "border-width": 2,
+      "border-type": "solid",
+      "border-color": "#000000",
     },
   },
 

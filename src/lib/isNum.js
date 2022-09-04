@@ -1,4 +1,10 @@
-const number = ["padding-left", "padding-top"];
+const number = [
+  "paddingX",
+  "paddingY",
+  "padding",
+  "border-radius",
+  "border-width",
+];
 
 const isNum = (value) => {
   if (number.indexOf(value) !== -1) {
