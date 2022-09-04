@@ -13,9 +13,9 @@ const ButtonEditor = () => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-4 ">
-      <Menu title="Padding">
-        <div>
+    <div className="w-full flex flex-col gap-2 ">
+      <Menu title={"Padding"}>
+        <div className="">
           <label htmlFor="paddingX">paddingX {styles["paddingX"]}</label>
           <input
             type="range"
@@ -37,9 +37,8 @@ const ButtonEditor = () => {
           />
         </div>
       </Menu>
-
-      <Menu title={"colors"}>
-        <div>
+      <Menu title={"Colors"}>
+        <div className="">
           <label htmlFor="color">color: {styles.color}</label>
           <input
             type="color"
@@ -58,6 +57,33 @@ const ButtonEditor = () => {
             type="color"
             name="background-color"
             value={styles["background-color"]}
+            onChange={handleChange}
+          />
+        </div>
+      </Menu>
+      <Menu title={"Border"}>
+        <div className="">
+          <label htmlFor="border-color">
+            border-color: {styles["border-color"]}
+          </label>
+          <input
+            type="color"
+            id="border-color"
+            name="border-color"
+            value={styles["border-color"]}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="border-width">
+            border-width: {styles["border-width"]}
+          </label>
+          <input
+            id="border-width"
+            type="range"
+            max="10"
+            name="border-width"
+            value={styles["border-width"]}
             onChange={handleChange}
           />
         </div>
