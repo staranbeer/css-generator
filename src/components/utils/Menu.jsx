@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
-import { useEffect } from "react";
-import { useCallback } from "react";
 
 export const MenuItem = ({ label, name, value, children }) => {
   return (
@@ -24,23 +22,12 @@ const MenuItems = ({ children }) => {
   );
 };
 
-const Menu = ({ title, children, activeMenu, setActiveMenu }) => {
-  const [isOpen, setIsOpen] = useState(activeMenu === title);
+const Menu = ({ title, children, isActive = false }) => {
+  const [isOpen, setIsOpen] = useState(isActive);
 
   const handleClick = () => {
-    setActiveMenu(title);
     setIsOpen((i) => !i);
   };
-
-  const handleClose = useCallback(() => {
-    if (activeMenu !== title) {
-      setIsOpen(false);
-    }
-  }, [activeMenu, title]);
-
-  useEffect(() => {
-    handleClose();
-  }, [activeMenu, handleClose]);
 
   return (
     <>
@@ -60,7 +47,7 @@ const Menu = ({ title, children, activeMenu, setActiveMenu }) => {
         </div>
       </button>
       <motion.div
-        className="overflow-hidden "
+        className="overflow-hidden h-0"
         animate={{ height: isOpen ? "auto" : "0" }}
       >
         <MenuItems>{children}</MenuItems>

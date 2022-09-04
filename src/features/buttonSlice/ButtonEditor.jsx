@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonResult from "../../components/layout/ButtonResult";
 import Menu, { MenuItem } from "../../components/utils/Menu";
@@ -6,7 +6,6 @@ import { changeButtonStyles } from "./buttonSlice";
 
 const ButtonEditor = () => {
   const { styles } = useSelector((state) => state.button);
-  const [activeMenu, setActiveMenu] = useState("Text");
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -25,11 +24,7 @@ const ButtonEditor = () => {
         </p>
         <div className="overflow-y-scroll mt-12 w-full flex flex-col gap-2 ">
           {/* text */}
-          <Menu
-            activeMenu={activeMenu}
-            setActiveMenu={setActiveMenu}
-            title={"Text"}
-          >
+          <Menu isActive={true} title={"Text"}>
             <MenuItem
               label={"font-weight"}
               name="font weight"
@@ -66,11 +61,7 @@ const ButtonEditor = () => {
 
           {/* padding */}
 
-          <Menu
-            activeMenu={activeMenu}
-            setActiveMenu={setActiveMenu}
-            title={"Padding"}
-          >
+          <Menu title={"Padding"}>
             <MenuItem
               name={"paddingX"}
               label="paddingX"
@@ -101,11 +92,7 @@ const ButtonEditor = () => {
           </Menu>
 
           {/* colors */}
-          <Menu
-            setActiveMenu={setActiveMenu}
-            activeMenu={activeMenu}
-            title={"Colors"}
-          >
+          <Menu title={"Colors"}>
             <MenuItem
               name="color"
               label={"color"}
@@ -136,11 +123,7 @@ const ButtonEditor = () => {
           </Menu>
           {/* border */}
 
-          <Menu
-            setActiveMenu={setActiveMenu}
-            activeMenu={activeMenu}
-            title={"Border"}
-          >
+          <Menu title={"Border"}>
             <MenuItem
               name="border color"
               label="border-color"
