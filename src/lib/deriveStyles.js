@@ -13,13 +13,15 @@ const deriveStyles = (styles) => {
   }
 
   //   derive shorthand notation from values
-  newStyles.padding = `${newStyles.paddingY} ${newStyles.paddingX}`;
-  newStyles.border = `${newStyles["border-width"]} ${newStyles["border-color"]} ${styles["border-type"]}`;
+  if (newStyles.paddingX || newStyles.paddingY) {
+    newStyles.padding = `${newStyles.paddingY} ${newStyles.paddingX}`;
+  }
+
+  if (newStyles.border) {
+    newStyles.border = `${newStyles["border-width"]} ${newStyles["border-color"]} ${styles["border-type"]}`;
+  }
 
   // deleting values that are available as  shorthand
-  if (newStyles["border-width"] === "0px") {
-    delete newStyles["border"];
-  }
 
   delete newStyles.paddingX;
   delete newStyles.paddingY;
