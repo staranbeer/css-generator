@@ -10,10 +10,12 @@ const App = () => {
     <div className="">
       <Layout>
         <Routes>
-          <Route path="/button" element={<ButtonEditor />} />
-          <Route path="/input" element={<InputEditor />} />
-          <Route path="/para" element={<ParaEditor />} />
-          <Route path="*" element={<div>Not found</div>} />
+          <Route path="editor">
+            <Route path="button" element={<ButtonEditor />} />
+            <Route path="input" element={<InputEditor />} />
+            <Route path="para" element={<ParaEditor />} />
+            <Route path="*" element={<div>Not found</div>} />
+          </Route>
         </Routes>
       </Layout>
     </div>
