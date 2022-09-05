@@ -1,17 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeButtonStyles } from "./buttonSlice";
-
 import Menu, { MenuItem } from "../../components/utils/Menu";
-import ButtonResult from "./ButtonResult";
+import InputResult from "./InputResult";
+import { changeInputStyles } from "./inputSlice";
 
-const ButtonEditor = () => {
-  const { styles } = useSelector((state) => state.button);
+const InputEditor = () => {
+  const { styles } = useSelector((state) => state.input);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name: property, value } = e.target;
-    dispatch(changeButtonStyles({ property, value }));
+    dispatch(changeInputStyles({ property, value }));
   };
 
   return (
@@ -190,10 +189,10 @@ const ButtonEditor = () => {
         </div>
       </div>
       <div className="place-self-center">
-        <ButtonResult />
+        <InputResult />
       </div>
     </>
   );
 };
 
-export default ButtonEditor;
+export default InputEditor;
