@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./../../images/logo.svg";
 const navLinks = [
+  { name: "Paragraphs", link: "/para" },
   { name: "Button", link: "/button" },
   { name: "Input", link: "/input" },
-  { name: "Text", link: "/text" },
 ];
 const Header = () => {
   return (
@@ -14,13 +14,15 @@ const Header = () => {
           <img src={logo} alt="" className="h-7" />
         </div>
         <nav>
-          <ul className="flex gap-6">
+          <ul className="flex gap-6 font-medium">
             {navLinks.map((navLink) => (
               <NavLink
                 key={navLink.name}
                 to={navLink.link}
                 className={({ isActive }) =>
-                  isActive ? " underline-offset-4 underline" : "inactive"
+                  isActive
+                    ? " text-blue-500 underline underline-offset-8"
+                    : "inactive"
                 }
               >
                 {navLink.name}

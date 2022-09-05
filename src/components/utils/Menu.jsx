@@ -7,7 +7,7 @@ export const MenuItem = ({ label, name, value, children }) => {
     <div>
       <div className="flex items-center justify-between">
         <label htmlFor={label}>{name}</label>
-        <div className="text-blue-500 font-medium">{value}</div>
+        <div className="text-blue-700 font-medium">{value}</div>
       </div>
       {children}
     </div>

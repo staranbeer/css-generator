@@ -16,7 +16,7 @@ const InputEditor = () => {
   return (
     <>
       <div className=" px-10 pt-8 border-r-2 w-full  mx-auto overflow-auto ">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-medium">
             Use the controls below to style the component on your right.
           </h2>
@@ -25,7 +25,7 @@ const InputEditor = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto my-12 space-y-3">
+        <div className="max-w-2xl mx-auto my-12 space-y-3">
           {/* text */}
 
           <Menu isActive={true} title={"Text"}>
@@ -78,6 +78,7 @@ const InputEditor = () => {
             >
               <input
                 type="range"
+                max="48"
                 value={styles["paddingX"]}
                 name="paddingX"
                 id="paddingX"
@@ -92,6 +93,7 @@ const InputEditor = () => {
             >
               <input
                 type="range"
+                max="48"
                 value={styles["paddingY"]}
                 name="paddingY"
                 id="paddingY"
@@ -215,7 +217,7 @@ const InputEditor = () => {
           </Menu>
         </div>
       </div>
-      <div className="place-self-center">
+      <div className="w-full h-full grid place-items-center overflow-auto">
         <InputResult />
       </div>
     </>

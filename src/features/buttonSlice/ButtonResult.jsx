@@ -41,7 +41,7 @@ const ButtonResult = () => {
 
   return (
     <>
-      <div className="">
+      <div className="overflow-auto">
         <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
           <button className="button">style Me!</button>
         </div>

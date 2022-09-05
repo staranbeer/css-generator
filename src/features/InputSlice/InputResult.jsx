@@ -46,11 +46,11 @@ const InputResult = () => {
 
   return (
     <>
-      <div className="">
-        <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
+      <div className="overlflow-auto mx-6">
+        <div className="overflow-auto px-8 min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
           <input
             placeholder="Style me!"
-            className="input cursor-default outline-none"
+            className="input cursor-default outline-none "
           />
         </div>
         <button
