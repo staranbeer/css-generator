@@ -32,7 +32,7 @@ const Menu = ({ title, children, isActive = false }) => {
   return (
     <>
       <button
-        className={`menu__item shadow-md  block w-full py-4  rounded  `}
+        className={`menu__item shadow-md  block w-full py-3 border border-gray-200  rounded  `}
         onClick={handleClick}
       >
         <div className="flex justify-between items-center px-4">

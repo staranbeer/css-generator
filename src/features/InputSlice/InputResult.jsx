@@ -47,10 +47,12 @@ const InputResult = () => {
   return (
     <>
       <div className="">
-        <input
-          placeholder="Style me!"
-          className="input cursor-default outline-none"
-        />
+        <div className="p-12 bg-gray-100">
+          <input
+            placeholder="Style me!"
+            className="input cursor-default outline-none"
+          />
+        </div>
         <button
           onClick={handleOpenModal}
           className="absolute top-8 right-8 px-10 py-3 text-white font-bold rounded-md bg-blue-500"

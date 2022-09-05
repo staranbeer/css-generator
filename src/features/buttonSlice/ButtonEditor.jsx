@@ -26,7 +26,7 @@ const ButtonEditor = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto mt-12 space-y-3">
+        <div className="max-w-3xl mx-auto my-12 space-y-3">
           {/* text */}
 
           <Menu isActive={true} title={"Text"}>
@@ -51,7 +51,12 @@ const ButtonEditor = () => {
               name="font size"
               value={styles["font-size"]}
             >
-              <select name="font-size" id="font-size" onChange={handleChange}>
+              <select
+                name="font-size"
+                value={styles["font-size"]}
+                id="font-size"
+                onChange={handleChange}
+              >
                 <option value="12">12</option>
                 <option value="14">14</option>
                 <option value="16">16</option>

@@ -8,7 +8,7 @@ const navLinks = [
 ];
 const Header = () => {
   return (
-    <header className="flex items-center px-10 py-3 border-b border-gray-300 shadow-sm">
+    <header className="flex items-center px-10 py-4 border-b border-gray-300 shadow-sm">
       <div className="flex items-end gap-20">
         <div>
           <img src={logo} alt="" className="h-7" />

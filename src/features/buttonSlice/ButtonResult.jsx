@@ -42,7 +42,9 @@ const ButtonResult = () => {
   return (
     <>
       <div className="">
-        <button className="button">style Me!</button>
+        <div className="p-12 bg-gray-100">
+          <button className="button">style Me!</button>
+        </div>
         <button
           onClick={handleOpenModal}
           className="absolute top-8 right-8 px-10 py-3 text-white font-bold rounded-md bg-blue-500"
