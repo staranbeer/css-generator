@@ -6,10 +6,13 @@ const inputSlice = createSlice({
     styles: {
       paddingX: "20",
       paddingY: "10",
-      "font-size": "12",
-      "border-width": 2,
+      "font-size": "16",
+      "box-shadow":
+        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "border-width": 0,
       "border-type": "solid",
       "border-color": "#000000",
+      "border-radius": "5",
     },
   },
 

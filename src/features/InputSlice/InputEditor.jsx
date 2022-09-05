@@ -25,7 +25,7 @@ const InputEditor = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto mt-12 space-y-3">
+        <div className="max-w-3xl mx-auto my-12 space-y-3">
           {/* text */}
 
           <Menu isActive={true} title={"Text"}>
@@ -50,7 +50,12 @@ const InputEditor = () => {
               name="font size"
               value={styles["font-size"]}
             >
-              <select name="font-size" id="font-size" onChange={handleChange}>
+              <select
+                name="font-size"
+                value={styles["font-size"]}
+                id="font-size"
+                onChange={handleChange}
+              >
                 <option value="12">12</option>
                 <option value="14">14</option>
                 <option value="16">16</option>
@@ -184,6 +189,28 @@ const InputEditor = () => {
                 value={styles["border-radius"] || "4"}
                 onChange={handleChange}
               />
+            </MenuItem>
+          </Menu>
+          <Menu title={"Shadow"}>
+            <MenuItem name={"box shadow"} label="box-shadow" value={""}>
+              <select
+                name="box-shadow"
+                value={styles["box-shadow"] || "small"}
+                id="box-shadow"
+                onChange={handleChange}
+              >
+                <option value="0 1px 2px 0 rgb(0 0 0 / 0.05)">small</option>
+                <option value="0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)">
+                  medium
+                </option>
+                <option value=" 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)">
+                  large
+                </option>
+
+                <option value="0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)">
+                  X-large
+                </option>
+              </select>
             </MenuItem>
           </Menu>
         </div>

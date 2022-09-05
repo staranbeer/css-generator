@@ -7,7 +7,7 @@ export const MenuItem = ({ label, name, value, children }) => {
     <div>
       <div className="flex items-center justify-between">
         <label htmlFor={label}>{name}</label>
-        <div>{value}</div>
+        <div className="text-blue-500 font-medium">{value}</div>
       </div>
       {children}
     </div>
@@ -32,7 +32,7 @@ const Menu = ({ title, children, isActive = false }) => {
   return (
     <>
       <button
-        className={`menu__item shadow-md  block w-full py-4 border  rounded  `}
+        className={`menu__item shadow-md  block w-full py-4  rounded  `}
         onClick={handleClick}
       >
         <div className="flex justify-between items-center px-4">

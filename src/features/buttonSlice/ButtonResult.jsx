@@ -49,12 +49,17 @@ const ButtonResult = () => {
         >
           Get CSS
         </button>
+        <h2 className="absolute top-8 left-1/2 translate-x-8 font-bold  ">
+          Button Editor
+        </h2>
       </div>
 
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
           <div className="bg-[#011627] p-8">
-            <HightLight style={nightOwl}>{resultStyles}</HightLight>
+            <HightLight wrapLongLines={true} language="css" style={nightOwl}>
+              {resultStyles}
+            </HightLight>
           </div>
           <button
             onClick={() => {

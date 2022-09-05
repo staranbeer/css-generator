@@ -121,7 +121,7 @@ const ButtonEditor = () => {
                 id="background-color"
                 type="color"
                 name="background-color"
-                value={styles["background-color"] || "#f2f2f2"}
+                value={styles["background-color"]}
                 onChange={handleChange}
               />
             </MenuItem>
@@ -175,16 +175,38 @@ const ButtonEditor = () => {
             <MenuItem
               label="border-radius"
               name={"Border radius"}
-              value={styles["border-radius"] || "4"}
+              value={styles["border-radius"]}
             >
               <input
                 id="border-radius"
                 type="range"
                 max="60"
                 name="border-radius"
-                value={styles["border-radius"] || "4"}
+                value={styles["border-radius"]}
                 onChange={handleChange}
               />
+            </MenuItem>
+          </Menu>
+          <Menu title={"Shadow"}>
+            <MenuItem name={"box shadow"} label="box-shadow" value={""}>
+              <select
+                name="box-shadow"
+                value={styles["box-shadow"] || "small"}
+                id="box-shadow"
+                onChange={handleChange}
+              >
+                <option value="0 1px 2px 0 rgb(0 0 0 / 0.05)">small</option>
+                <option value="0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)">
+                  medium
+                </option>
+                <option value=" 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)">
+                  large
+                </option>
+
+                <option value="0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)">
+                  X-large
+                </option>
+              </select>
             </MenuItem>
           </Menu>
         </div>
