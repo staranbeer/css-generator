@@ -8,13 +8,13 @@ const buttonSlice = createSlice({
       paddingY: "10",
       "font-size": "16",
       "border-width": 0,
-      "box-shadow":
-        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
       "border-type": "solid",
       "border-color": "#000000",
-      "border-radius": "5",
-      "background-color": "#3b83f6",
       color: "#ffffff",
+      "background-color": "#3b83f6",
+      "box-shadow":
+        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "border-radius": "5",
     },
   },
 
