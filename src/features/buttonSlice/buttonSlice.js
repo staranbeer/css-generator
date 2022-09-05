@@ -13,8 +13,8 @@ const buttonSlice = createSlice({
       "border-type": "solid",
       "border-color": "#000000",
       "border-radius": "5",
-      "background-color": "#7dd3fc",
-      color: "#1e3a8a",
+      "background-color": "#3b83f6",
+      color: "#ffffff",
     },
   },
 

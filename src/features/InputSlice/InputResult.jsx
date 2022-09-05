@@ -47,7 +47,7 @@ const InputResult = () => {
   return (
     <>
       <div className="">
-        <div className="p-12 bg-gray-100">
+        <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
           <input
             placeholder="Style me!"
             className="input cursor-default outline-none"

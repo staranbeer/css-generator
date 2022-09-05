@@ -42,7 +42,7 @@ const ButtonResult = () => {
   return (
     <>
       <div className="">
-        <div className="p-12 bg-gray-100">
+        <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
           <button className="button">style Me!</button>
         </div>
         <button
