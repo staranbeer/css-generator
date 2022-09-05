@@ -6,6 +6,9 @@ import Modal from "../../components/utils/Modal";
 import deriveStyles from "../../lib/deriveStyles";
 import HightLight from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { createPortal } from "react-dom";
 
 const ButtonResult = () => {
   const { styles } = useSelector((state) => state.button);
@@ -47,6 +50,7 @@ const ButtonResult = () => {
           Get CSS
         </button>
       </div>
+
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
           <div className="bg-[#011627] p-8">
@@ -54,6 +58,7 @@ const ButtonResult = () => {
           </div>
           <button
             onClick={() => {
+              toast.success("Copied to clipboard");
               navigator.clipboard.writeText(resultStyles);
               handleCloseModal();
             }}
@@ -62,6 +67,17 @@ const ButtonResult = () => {
             Copy to clipboard
           </button>
         </Modal>
+      )}
+
+      {createPortal(
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick={true}
+        />,
+        document.getElementById("toast")
       )}
     </>
   );

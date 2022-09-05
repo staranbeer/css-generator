@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "./components/layout/Layout";
 import ButtonEditor from "./features/buttonSlice/ButtonEditor";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
 
 const App = () => {
   return (

@@ -25,7 +25,7 @@ const ButtonEditor = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto mt-8 space-y-3">
+        <div className="max-w-3xl mx-auto mt-12 space-y-3">
           {/* text */}
 
           <Menu isActive={true} title={"Text"}>
