@@ -12,6 +12,8 @@ import deriveStyles from "../../lib/deriveStyles";
 const ParaResult = () => {
   const { styles } = useSelector((state) => state.para);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [fontLink, setFontLink] = useState("");
+  const [currentFont, setCurrentFont] = useState("");
 
   const handleCloseModal = () => {
     setModalOpen(false);
@@ -30,6 +32,14 @@ const ParaResult = () => {
   const resultStyles = useMemo(() => {
     let derivedStyles = deriveStyles(styles);
 
+    setCurrentFont(derivedStyles["font-family"]);
+
+    if (derivedStyles["font-family"]) {
+      derivedStyles[
+        "font-family"
+      ] = `"${derivedStyles["font-family"]}", sans-serif, serif`;
+    }
+
     // turn the object key value pairs into a CSS ruleset
     let result = ".para {\n";
     for (let key in derivedStyles) {
@@ -43,6 +53,18 @@ const ParaResult = () => {
     let stylesElement = document.getElementById("para-generated-styles");
     stylesElement.innerHTML = resultStyles;
   }, [resultStyles]);
+
+  useEffect(() => {
+    const fontElement = document.getElementById("para-generated-font");
+    let font = currentFont;
+    if (font.split(" ").length > 1) {
+      font = font.split(" ").join("+");
+    }
+
+    const link = `https://fonts.googleapis.com/css2?family=${font}:wght@300;400;700&display=swap`;
+    fontElement.href = link;
+    setFontLink(`<link ${link} rel="stylesheet"> `);
+  }, [currentFont]);
 
   return (
     <>
@@ -67,18 +89,37 @@ const ParaResult = () => {
       </div>
 
       {isModalOpen && (
-        <Modal onClose={handleCloseModal}>
-          <div className="bg-[#011627] p-8">
-            <HightLight language="css" wrapLongLines={true} style={nightOwl}>
-              {resultStyles}
-            </HightLight>
+        <Modal onClose={handleCloseModal} className="w-[1000px]">
+          <div className="grid-cols-2 grid">
+            <div className="bg-[#011627] p-8">
+              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
+                {`<!-- Include these in the head of your HTML to get access to your selected font -->`}
+                {fontLink}
+              </HightLight>
+              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
+                {`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`}
+              </HightLight>
+
+              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
+                {`<link rel="preconnect" href="https://fonts.googleapis.com" />`}
+              </HightLight>
+              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
+                {fontLink}
+              </HightLight>
+            </div>
+            <div className="bg-[#011627] p-8">
+              <HightLight language="css" wrapLongLines={true} style={nightOwl}>
+                {resultStyles}
+              </HightLight>
+            </div>
+            <div></div>
+            <button
+              onClick={copyToClipboard}
+              className="w-full bg-blue-500 py-3  mt-6 rounded text-white font-bold"
+            >
+              Copy CSS to clipboard
+            </button>
           </div>
-          <button
-            onClick={copyToClipboard}
-            className="w-full bg-blue-500 py-3  mt-6 rounded text-white font-bold"
-          >
-            Copy to clipboard
-          </button>
         </Modal>
       )}
 

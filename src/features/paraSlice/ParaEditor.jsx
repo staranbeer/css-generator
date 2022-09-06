@@ -30,6 +30,22 @@ const ParaEditor = () => {
 
           <Menu isActive={true} title={"Text"}>
             <MenuItem
+              label={"font-family"}
+              name="font family"
+              value={styles["font-family"] || 400}
+            >
+              <select
+                name="font-family"
+                id="font-family"
+                onChange={handleChange}
+              >
+                <option value="Bungee Shade">Bungee</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Lato">Lato</option>
+              </select>
+            </MenuItem>
+
+            <MenuItem
               label={"font-weight"}
               name="font weight"
               value={styles["font-weight"] || 400}

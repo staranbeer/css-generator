@@ -20,6 +20,6 @@
 
   input[type="color"],
   select {
-    @apply h-10 border-2 border-gray-200 p-1;
+    @apply h-10 border border-gray-200 p-1;
   }
 }

@@ -6,6 +6,7 @@ const paraSlice = createSlice({
   initialState: {
     styles: {
       "font-size": "16",
+      "font-family": "Oswald",
       "font-weight": 300,
       color: "#333333",
     },
@@ -19,5 +20,5 @@ const paraSlice = createSlice({
   },
 });
 
-export const { changeParaStyles } = paraSlice.actions;
+export const { changeParaStyles, changeFont } = paraSlice.actions;
 export default paraSlice.reducer;

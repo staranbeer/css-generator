@@ -17,7 +17,7 @@ const deriveStyles = (styles) => {
     newStyles.padding = `${newStyles.paddingY} ${newStyles.paddingX}`;
   }
 
-  if (newStyles.border) {
+  if (newStyles.border > 0) {
     newStyles.border = `${newStyles["border-width"]} ${newStyles["border-color"]} ${styles["border-type"]}`;
   }
 
