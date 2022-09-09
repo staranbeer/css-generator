@@ -22,4 +22,12 @@
   select {
     @apply h-10 border border-gray-200 p-1;
   }
+
+  .btn {
+    @apply px-6 py-2 text-white font-bold rounded-md bg-blue-500 hover:brightness-110 active:translate-y-0.5;
+  }
+
+  .btn-lg {
+    @apply px-10 py-3;
+  }
 }

@@ -11,9 +11,7 @@ const Header = () => {
     <header className="flex items-center px-10 py-4 border-b border-gray-300 shadow-sm">
       <div className="flex items-end gap-20">
         <div>
-          <Link to="/">
-            <img src={logo} alt="" className="h-7" />
-          </Link>
+          <img src={logo} alt="" className="h-7" />
         </div>
         <nav>
           <ul className="flex gap-6 font-medium">
