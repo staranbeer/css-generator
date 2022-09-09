@@ -10,6 +10,7 @@ const paraSlice = createSlice({
       "font-weight": 300,
       "line-height": 32,
       "letter-spacing": 2,
+      "word-spacing": 2,
       color: "#333333",
     },
   },

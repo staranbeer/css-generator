@@ -7,6 +7,7 @@ const number = [
   "font-size",
   "line-height",
   "letter-spacing",
+  "word-spacing",
 ];
 
 const isNum = (value) => {

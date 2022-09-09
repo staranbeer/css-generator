@@ -99,6 +99,21 @@ const ParaEditor = () => {
             </MenuItem>
 
             <MenuItem
+              label={"word-spacing"}
+              name="word spacing"
+              value={styles["word-spacing"] || 400}
+            >
+              <input
+                type="range"
+                step={2}
+                name="word-spacing"
+                id="word-spacing"
+                onChange={handleChange}
+                value={styles["word-spacing"]}
+              />
+            </MenuItem>
+
+            <MenuItem
               label={"letter-spacing"}
               name="letter spacing"
               value={styles["letter-spacing"] || 400}
