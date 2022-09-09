@@ -6,7 +6,7 @@ const Home = ({ showEditor }) => {
     <div className="grid h-screen w-screen overflow-hidden place-items-center">
       <div className="grid grid-cols-2">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-xl font-medium">
+          <h1 className="text-xl text-center ">
             Design your HTML elements without directly writing any CSS!
           </h1>
           <Link

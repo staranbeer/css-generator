@@ -70,7 +70,12 @@ const ParaResult = () => {
     <>
       <div className="overlflow-auto mx-6">
         <div className="overflow-auto max-w-lg p-12 min-w-[400px] min-h-[250px] grid place-items-center bg-gray-100">
-          <p className="para" contentEditable={true}>
+          <p
+            className="para"
+            contentEditable={true}
+            suppressContentEditableWarning={true}
+            title="You can edit the text inside of this element"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
             suscipit, commodi dolores unde dolorem aspernatur nemo ad animi
             aliquam temporibus! Excepturi aliquam vitae maiores delectus

@@ -17,10 +17,12 @@ const deriveStyles = (styles) => {
     newStyles.padding = `${newStyles.paddingY} ${newStyles.paddingX}`;
   }
 
-  if (newStyles.border > 0) {
+  let borderWidth = newStyles["border-width"] || "0px";
+  if (borderWidth.replace("px", "") > 0) {
     newStyles.border = `${newStyles["border-width"]} ${newStyles["border-color"]} ${styles["border-type"]}`;
   }
 
+  console.log(newStyles);
   // deleting values that are available as  shorthand
 
   delete newStyles.paddingX;
