@@ -39,9 +39,31 @@ const ParaEditor = () => {
                 id="font-family"
                 onChange={handleChange}
               >
-                <option value="Bungee Shade">Bungee</option>
                 <option value="Roboto">Roboto</option>
+                <option value="Bungee">Bungee</option>
                 <option value="Lato">Lato</option>
+              </select>
+            </MenuItem>
+
+            <MenuItem
+              label={"font-size"}
+              name="font size"
+              value={styles["font-size"]}
+            >
+              <select
+                name="font-size"
+                value={styles["font-size"]}
+                id="font-size"
+                onChange={handleChange}
+              >
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="20">18</option>
+                <option value="24">20</option>
+                <option value="32">24</option>
+                <option value="40">30</option>
+                <option value="48">36</option>
               </select>
             </MenuItem>
 
@@ -62,25 +84,34 @@ const ParaEditor = () => {
             </MenuItem>
 
             <MenuItem
-              label={"font-size"}
-              name="font size"
-              value={styles["font-size"]}
+              label={"line-height"}
+              name="line height"
+              value={styles["line-height"] || 400}
             >
-              <select
-                name="font-size"
-                value={styles["font-size"]}
-                id="font-size"
+              <input
+                type="range"
+                step={4}
+                name="line-height"
+                id="line-height"
                 onChange={handleChange}
-              >
-                <option value="12">12</option>
-                <option value="14">14</option>
-                <option value="16">16</option>
-                <option value="20">20</option>
-                <option value="24">24</option>
-                <option value="32">32</option>
-                <option value="40">40</option>
-                <option value="48">48</option>
-              </select>
+                value={styles["line-height"]}
+              />
+            </MenuItem>
+
+            <MenuItem
+              label={"letter-spacing"}
+              name="letter spacing"
+              value={styles["letter-spacing"] || 400}
+            >
+              <input
+                type="range"
+                step={0.4}
+                max="8"
+                name="letter-spacing"
+                id="letter-spacing"
+                onChange={handleChange}
+                value={styles["letter-spacing"]}
+              />
             </MenuItem>
           </Menu>
 

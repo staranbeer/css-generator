@@ -5,6 +5,8 @@ const number = [
   "border-radius",
   "border-width",
   "font-size",
+  "line-height",
+  "letter-spacing",
 ];
 
 const isNum = (value) => {

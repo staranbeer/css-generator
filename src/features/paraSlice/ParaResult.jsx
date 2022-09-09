@@ -69,8 +69,8 @@ const ParaResult = () => {
   return (
     <>
       <div className="overlflow-auto mx-6">
-        <div className="overflow-auto max-w-lg px-12 min-w-[400px] min-h-[250px] grid place-items-center bg-gray-100">
-          <p className="para ">
+        <div className="overflow-auto max-w-lg p-12 min-w-[400px] min-h-[250px] grid place-items-center bg-gray-100">
+          <p className="para" contentEditable={true}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
             suscipit, commodi dolores unde dolorem aspernatur nemo ad animi
             aliquam temporibus! Excepturi aliquam vitae maiores delectus
@@ -103,6 +103,7 @@ const ParaResult = () => {
               <HightLight language="html" wrapLongLines={true} style={nightOwl}>
                 {`<link rel="preconnect" href="https://fonts.googleapis.com" />`}
               </HightLight>
+
               <HightLight language="html" wrapLongLines={true} style={nightOwl}>
                 {fontLink}
               </HightLight>
