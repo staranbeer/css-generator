@@ -69,7 +69,7 @@ const ParaResult = () => {
   return (
     <>
       <div className="overlflow-auto mx-6">
-        <div className="overflow-auto max-w-lg p-12 min-w-[400px] min-h-[250px] grid place-items-center bg-gray-100">
+        <div className="overflow-auto  p-12 w-[500px] h-[350px] grid place-items-center bg-gray-100">
           <p
             className="para"
             contentEditable={true}
