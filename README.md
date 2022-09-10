@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# CSS Generator
+An app that lets you generate CSS for your HTML elements with a GUI interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![css](https://user-images.githubusercontent.com/62498540/189477397-0cf8948a-1a0d-4834-9e20-afa022bc503c.png)
 
-In the project directory, you can run:
 
-### `npm start`
+## Technologies Used
+- **React**
+- **Redux**
+- **React Router**
+- **TailwindCSS**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Quick Start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To use the app, you can head over to [https://css-generator-pearl.vercel.app/](https://css-generator-pearl.vercel.app/)
 
-### `npm test`
+## Running Locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Requirements
 
-### `npm run build`
+> Make sure you have node installed. You can check which version of node you're using by running the following command.
+```bash
+node -v
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> We recommend using the lts(Long-term Support) version of node.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/staranbeer/css-generator.git
+cd css-generator
+npm install
+npm run start
+```
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**All kinds of suggestions and contributions are welcome**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To contribute, you can fork the project repository so that you can have your own copy of the project on your github.
 
-## Learn More
+1. Go to the repository on GitHub: https://github.com/staranbeer/css-generator
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Click the "Fork" Button in the upper right-hand corner of the interface.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. After the repository has been forked, you will be taken to your copy of the `css-generator` repository
 
-### Code Splitting
+4. Now you can clone the repository locally by running the following command on your terminal.
+```bash
+git clone https://github.com/YOUR_USER_NAME/css-generator.git
+```
+5. Check out a new branch so you don't make changes to the main branch.
+```bash
+git checkout -b your-branch-name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. You can commit any changes you make by running:
+```bash
+git add .
+git commit -m "i changed something"
+```
 
-### Analyzing the Bundle Size
+7. After you're done commiting your changes, you can push changes to your branch by running.
+```bash
+git push origin <your-branch-name>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+8. Now, go to your repository on github and click on the compare and pull request button.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+After your changes are approved, They will be merged with the primary codebase.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
