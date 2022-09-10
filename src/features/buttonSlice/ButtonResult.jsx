@@ -13,11 +13,11 @@ const ButtonResult = () => {
   const { styles } = useSelector((state) => state.button);
   const [isModalOpen, setModalOpen] = useState(false);
 
-  function handleCloseModal() {
+  const handleCloseModal = () => {
     setModalOpen(false);
   }
 
-  function handleOpenModal() {
+  const handleOpenModal = () => {
     setModalOpen(true);
   }
 
