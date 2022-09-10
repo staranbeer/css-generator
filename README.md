@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#
-=======
 # CSS Generator
 An app that lets you generate CSS for your HTML elements with a GUI interface.
 
