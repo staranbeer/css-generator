@@ -17,7 +17,11 @@ const Home = ({ showEditor }) => {
             Get Started
           </Link>
         </div>
-        <img src={bg} alt="" />
+        <img
+          src={bg}
+          alt="edison's electric pen"
+          title="edison's electric pen"
+        />
       </div>
     </div>
   );
