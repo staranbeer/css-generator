@@ -10,7 +10,7 @@ const Home = ({ showEditor }) => {
             Design your HTML elements without directly writing any CSS!
           </h1>
           <Link
-            to={"/editor/para"}
+            to={"/editor/button"}
             onClick={showEditor}
             className="btn btn-lg mx-auto block max-w-max mt-6"
           >

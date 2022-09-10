@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "./../../images/logo.svg";
 const navLinks = [
-  { name: "Paragraphs", link: "/editor/para" },
   { name: "Button", link: "/editor/button" },
+  { name: "Paragraphs", link: "/editor/para" },
   { name: "Input", link: "/editor/input" },
 ];
 const Header = () => {
