@@ -26,7 +26,7 @@ node -v
 
 > We recommend using the lts(Long-term Support) version of node.
 
-### Cloning the Repo
+### Cloning the repo
 
 ```bash
 git clone https://github.com/staranbeer/css-generator.git
