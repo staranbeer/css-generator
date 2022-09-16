@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "./../../images/logo.svg";
 const navLinks = [
   { name: "Button", link: "/editor/button" },
-  { name: "Paragraphs", link: "/editor/para" },
+  { name: "Paragraph", link: "/editor/para" },
   { name: "Input", link: "/editor/input" },
 ];
 const Header = () => {
