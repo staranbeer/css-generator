@@ -1,19 +1,19 @@
-import React, { useState, useMemo, useEffect } from "react";
-import HightLight from "react-syntax-highlighter";
-import { createPortal } from "react-dom";
-import { useSelector } from "react-redux";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useMemo, useEffect } from 'react';
+import HightLight from 'react-syntax-highlighter';
+import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Modal from "../../components/utils/Modal";
-import deriveStyles from "../../lib/deriveStyles";
+import Modal from '../../components/utils/Modal';
+import deriveStyles from '../../lib/deriveStyles';
 
 const ParaResult = () => {
   const { styles } = useSelector((state) => state.para);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [fontLink, setFontLink] = useState("");
-  const [currentFont, setCurrentFont] = useState("");
+  const [fontLink, setFontLink] = useState('');
+  const [currentFont, setCurrentFont] = useState('');
 
   const handleCloseModal = () => {
     setModalOpen(false);
@@ -23,42 +23,38 @@ const ParaResult = () => {
     setModalOpen(true);
   };
 
-  const copyToClipboard = () => {
-    toast.success("Copied to clipboard");
-    navigator.clipboard.writeText(resultStyles);
-    handleCloseModal();
-  };
-
   const resultStyles = useMemo(() => {
-    let derivedStyles = deriveStyles(styles);
+    const derivedStyles = deriveStyles(styles);
 
-    setCurrentFont(derivedStyles["font-family"]);
+    setCurrentFont(derivedStyles['font-family']);
 
-    if (derivedStyles["font-family"]) {
+    if (derivedStyles['font-family']) {
       derivedStyles[
-        "font-family"
-      ] = `"${derivedStyles["font-family"]}", sans-serif, serif`;
+        'font-family'
+      ] = `"${derivedStyles['font-family']}", sans-serif, serif`;
     }
 
     // turn the object key value pairs into a CSS ruleset
-    let result = ".para {\n";
-    for (let key in derivedStyles) {
-      result += `    ${key}: ${derivedStyles[key]};\n`;
+    let result = '.para {\n';
+
+    for (const [key, value] of Object.entries(derivedStyles)) {
+      result += `    ${key}: ${value};\n`;
     }
-    result += "}";
+    result += '}';
+
     return result;
   }, [styles]);
 
   useEffect(() => {
-    let stylesElement = document.getElementById("para-generated-styles");
+    const stylesElement = document.getElementById('para-generated-styles');
     stylesElement.innerHTML = resultStyles;
   }, [resultStyles]);
 
   useEffect(() => {
-    const fontElement = document.getElementById("para-generated-font");
+    const fontElement = document.getElementById('para-generated-font');
     let font = currentFont;
-    if (font.split(" ").length > 1) {
-      font = font.split(" ").join("+");
+    if (font.split(' ').length > 1) {
+      font = font.split(' ').join('+');
     }
 
     const link = `https://fonts.googleapis.com/css2?family=${font}:wght@300;400;700&display=swap`;
@@ -66,14 +62,20 @@ const ParaResult = () => {
     setFontLink(`<link ${link} rel="stylesheet"> `);
   }, [currentFont]);
 
+  const copyToClipboard = () => {
+    toast.success('Copied to clipboard');
+    navigator.clipboard.writeText(resultStyles);
+    handleCloseModal();
+  };
+
   return (
     <>
       <div className="overlflow-auto mx-6">
         <div className="overflow-auto  p-12 w-[500px] h-[350px] grid place-items-center bg-gray-100">
           <p
             className="para"
-            contentEditable={true}
-            suppressContentEditableWarning={true}
+            contentEditable
+            suppressContentEditableWarning
             title="You can edit the text inside of this element"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
@@ -83,6 +85,7 @@ const ParaResult = () => {
           </p>
         </div>
         <button
+          type="button"
           onClick={handleOpenModal}
           className="absolute top-8 right-8 px-10 py-3 text-white font-bold rounded-md bg-blue-500"
         >
@@ -97,29 +100,30 @@ const ParaResult = () => {
         <Modal onClose={handleCloseModal} className="w-[1000px]">
           <div className="grid-cols-2 grid">
             <div className="bg-[#011627] p-8">
-              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
-                {`<!-- Include these in the head of your HTML to get access to your selected font -->`}
+              <HightLight language="html" wrapLongLines style={nightOwl}>
+                {'<!-- Include these in the head of your HTML to get access to your selected font -->'}
                 {fontLink}
               </HightLight>
-              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
-                {`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`}
+              <HightLight language="html" wrapLongLines style={nightOwl}>
+                {'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />'}
               </HightLight>
 
-              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
-                {`<link rel="preconnect" href="https://fonts.googleapis.com" />`}
+              <HightLight language="html" wrapLongLines style={nightOwl}>
+                {'<link rel="preconnect" href="https://fonts.googleapis.com" />'}
               </HightLight>
 
-              <HightLight language="html" wrapLongLines={true} style={nightOwl}>
+              <HightLight language="html" wrapLongLines style={nightOwl}>
                 {fontLink}
               </HightLight>
             </div>
             <div className="bg-[#011627] p-8">
-              <HightLight language="css" wrapLongLines={true} style={nightOwl}>
+              <HightLight language="css" wrapLongLines style={nightOwl}>
                 {resultStyles}
               </HightLight>
             </div>
-            <div></div>
+            <div />
             <button
+              type="button"
               onClick={copyToClipboard}
               className="w-full bg-blue-500 py-3  mt-6 rounded text-white font-bold"
             >
@@ -133,11 +137,11 @@ const ParaResult = () => {
         <ToastContainer
           position="bottom-center"
           autoClose={3000}
-          hideProgressBar={true}
+          hideProgressBar
           newestOnTop={false}
-          closeOnClick={true}
+          closeOnClick
         />,
-        document.getElementById("toast")
+        document.getElementById('toast'),
       )}
     </>
   );

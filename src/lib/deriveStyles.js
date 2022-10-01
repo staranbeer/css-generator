@@ -1,10 +1,10 @@
-import isNum from "./isNum";
+import isNum from './isNum';
 
 const deriveStyles = (styles) => {
   // if property is a number,
   // add px at the end
-  let newStyles = {};
-  for (let key in styles) {
+  const newStyles = {};
+  for (const key in styles) {
     if (isNum(key)) {
       newStyles[key] = `${styles[key]}px`;
     } else {
@@ -17,9 +17,9 @@ const deriveStyles = (styles) => {
     newStyles.padding = `${newStyles.paddingY} ${newStyles.paddingX}`;
   }
 
-  let borderWidth = newStyles["border-width"] || "0px";
-  if (borderWidth.replace("px", "") > 0) {
-    newStyles.border = `${newStyles["border-width"]} ${newStyles["border-color"]} ${styles["border-type"]}`;
+  const borderWidth = newStyles['border-width'] || '0px';
+  if (borderWidth.replace('px', '') > 0) {
+    newStyles.border = `${newStyles['border-width']} ${newStyles['border-color']} ${styles['border-type']}`;
   }
 
   console.log(newStyles);
@@ -27,9 +27,9 @@ const deriveStyles = (styles) => {
 
   delete newStyles.paddingX;
   delete newStyles.paddingY;
-  delete newStyles["border-color"];
-  delete newStyles["border-width"];
-  delete newStyles["border-type"];
+  delete newStyles['border-color'];
+  delete newStyles['border-width'];
+  delete newStyles['border-type'];
 
   return newStyles;
 };

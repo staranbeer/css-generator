@@ -1,13 +1,13 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { useSelector } from "react-redux";
-import HightLight from "react-syntax-highlighter";
-import { toast, ToastContainer } from "react-toastify";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
+import HightLight from 'react-syntax-highlighter';
+import { toast, ToastContainer } from 'react-toastify';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Modal from "../../components/utils/Modal";
-import deriveStyles from "../../lib/deriveStyles";
+import Modal from '../../components/utils/Modal';
+import deriveStyles from '../../lib/deriveStyles';
 
 const ButtonResult = () => {
   const { styles } = useSelector((state) => state.button);
@@ -15,27 +15,27 @@ const ButtonResult = () => {
 
   const handleCloseModal = () => {
     setModalOpen(false);
-  }
+  };
 
   const handleOpenModal = () => {
     setModalOpen(true);
-  }
+  };
 
   const resultStyles = useMemo(() => {
-    let derivedStyles = deriveStyles(styles);
+    const derivedStyles = deriveStyles(styles);
 
     // turn the object key value pairs into a CSS rule
-    let result = ".button {\n";
-    for (let key in derivedStyles) {
-      result += `    ${key}: ${derivedStyles[key]};\n`;
+    let result = '.button {\n';
+    for (const [key, value] of Object.entries(derivedStyles)) {
+      result += `    ${key}: ${value};\n`;
     }
-    result += "}";
+    result += '}';
     return result;
   }, [styles]);
 
   useEffect(() => {
     // stick the styles into the head element.
-    let stylesElement = document.getElementById("button-generated-styles");
+    const stylesElement = document.getElementById('button-generated-styles');
     stylesElement.innerHTML = resultStyles;
   }, [resultStyles]);
 
@@ -43,9 +43,10 @@ const ButtonResult = () => {
     <>
       <div className="overflow-auto">
         <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
-          <button className="button">style Me!</button>
+          <div className="button">style Me!</div>
         </div>
         <button
+          type="button"
           onClick={handleOpenModal}
           className="absolute top-8 right-8 px-10 py-3 text-white font-bold rounded-md bg-blue-500"
         >
@@ -59,13 +60,14 @@ const ButtonResult = () => {
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
           <div className="bg-[#011627] p-8">
-            <HightLight wrapLongLines={true} language="css" style={nightOwl}>
+            <HightLight wrapLongLines language="css" style={nightOwl}>
               {resultStyles}
             </HightLight>
           </div>
           <button
+            type="button"
             onClick={() => {
-              toast.success("Copied to clipboard");
+              toast.success('Copied to clipboard');
               navigator.clipboard.writeText(resultStyles);
               handleCloseModal();
             }}
@@ -80,11 +82,11 @@ const ButtonResult = () => {
         <ToastContainer
           position="bottom-center"
           autoClose={3000}
-          hideProgressBar={true}
+          hideProgressBar
           newestOnTop={false}
-          closeOnClick={true}
+          closeOnClick
         />,
-        document.getElementById("toast")
+        document.getElementById('toast'),
       )}
     </>
   );
