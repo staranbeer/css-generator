@@ -1,15 +1,15 @@
-import React, { useState, useMemo, useEffect } from "react";
-import HightLight from "react-syntax-highlighter";
-import { createPortal } from "react-dom";
-import { useSelector } from "react-redux";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useMemo, useEffect } from 'react';
+import HightLight from 'react-syntax-highlighter';
+import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Modal from "../../components/utils/Modal";
-import deriveStyles from "../../lib/deriveStyles";
+import Modal from '../../components/utils/Modal';
+import deriveStyles from '../../lib/deriveStyles';
 
-const InputResult = () => {
+function InputResult() {
   const { styles } = useSelector((state) => state.input);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -21,26 +21,26 @@ const InputResult = () => {
     setModalOpen(true);
   };
 
+  const resultStyles = useMemo(() => {
+    const derivedStyles = deriveStyles(styles);
+
+    // turn the object key value pairs into a CSS ruleset
+    let result = '.input {\n';
+    for (const [key, value] of Object.entries(derivedStyles)) {
+      result += `    ${key}: ${value};\n`;
+    }
+    result += '}';
+    return result;
+  }, [styles]);
+
   const copyToClipboard = () => {
-    toast.success("Copied to clipboard");
+    toast.success('Copied to clipboard');
     navigator.clipboard.writeText(resultStyles);
     handleCloseModal();
   };
 
-  const resultStyles = useMemo(() => {
-    let derivedStyles = deriveStyles(styles);
-
-    // turn the object key value pairs into a CSS ruleset
-    let result = ".input {\n";
-    for (let key in derivedStyles) {
-      result += `    ${key}: ${derivedStyles[key]};\n`;
-    }
-    result += "}";
-    return result;
-  }, [styles]);
-
   useEffect(() => {
-    let stylesElement = document.getElementById("input-generated-styles");
+    const stylesElement = document.getElementById('input-generated-styles');
     stylesElement.innerHTML = resultStyles;
   }, [resultStyles]);
 
@@ -54,6 +54,7 @@ const InputResult = () => {
           />
         </div>
         <button
+          type="button"
           onClick={handleOpenModal}
           className="absolute top-8 right-8 px-10 py-3 text-white font-bold rounded-md bg-blue-500"
         >
@@ -67,11 +68,12 @@ const InputResult = () => {
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
           <div className="bg-[#011627] p-8">
-            <HightLight language="css" wrapLongLines={true} style={nightOwl}>
+            <HightLight language="css" wrapLongLines style={nightOwl}>
               {resultStyles}
             </HightLight>
           </div>
           <button
+            type="button"
             onClick={copyToClipboard}
             className="w-full bg-blue-500 py-3  mt-6 rounded text-white font-bold"
           >
@@ -84,14 +86,14 @@ const InputResult = () => {
         <ToastContainer
           position="bottom-center"
           autoClose={3000}
-          hideProgressBar={true}
+          hideProgressBar
           newestOnTop={false}
-          closeOnClick={true}
+          closeOnClick
         />,
-        document.getElementById("toast")
+        document.getElementById('toast'),
       )}
     </>
   );
-};
+}
 
 export default InputResult;

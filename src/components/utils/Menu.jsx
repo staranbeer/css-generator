@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi';
 
-export const MenuItem = ({ label, name, value, children }) => {
+export function MenuItem({
+  label, name, value, children,
+}) {
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -12,17 +14,17 @@ export const MenuItem = ({ label, name, value, children }) => {
       {children}
     </div>
   );
-};
+}
 
-const MenuItems = ({ children }) => {
+function MenuItems({ children }) {
   return (
     <div className="grid mt-2 gap-2 sm:gap-8 md:gap-12 items-start  sm:grid-cols-2 mb-10">
       {children}
     </div>
   );
-};
+}
 
-const Menu = ({ title, children, isActive = false }) => {
+function Menu({ title, children, isActive = false }) {
   const [isOpen, setIsOpen] = useState(isActive);
 
   const handleClick = () => {
@@ -32,7 +34,8 @@ const Menu = ({ title, children, isActive = false }) => {
   return (
     <>
       <button
-        className={`menu__item shadow-md  block w-full py-3 border border-gray-200  rounded  `}
+        type="button"
+        className="menu__item shadow-md  block w-full py-3 border border-gray-200  rounded  "
         onClick={handleClick}
       >
         <div className="flex justify-between items-center px-4">
@@ -48,12 +51,12 @@ const Menu = ({ title, children, isActive = false }) => {
       </button>
       <motion.div
         className="overflow-hidden h-0"
-        animate={{ height: isOpen ? "auto" : "0" }}
+        animate={{ height: isOpen ? 'auto' : '0' }}
       >
         <MenuItems>{children}</MenuItems>
       </motion.div>
     </>
   );
-};
+}
 
 export default Menu;

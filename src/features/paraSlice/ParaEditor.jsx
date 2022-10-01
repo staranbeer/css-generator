@@ -1,10 +1,10 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Menu, { MenuItem } from "../../components/utils/Menu";
-import { changeParaStyles } from "./paraSlice";
-import ParaResult from "./ParaResult";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Menu, { MenuItem } from '../../components/utils/Menu';
+import { changeParaStyles } from './paraSlice';
+import ParaResult from './ParaResult';
 
-const ParaEditor = () => {
+function ParaEditor() {
   const { styles } = useSelector((state) => state.para);
   const dispatch = useDispatch();
 
@@ -28,11 +28,11 @@ const ParaEditor = () => {
         <div className="max-w-2xl mx-auto my-12 space-y-3">
           {/* text */}
 
-          <Menu isActive={true} title={"Text"}>
+          <Menu isActive title="Text">
             <MenuItem
-              label={"font-family"}
+              label="font-family"
               name="font family"
-              value={styles["font-family"] || 400}
+              value={styles['font-family'] || 400}
             >
               <select
                 name="font-family"
@@ -46,13 +46,13 @@ const ParaEditor = () => {
             </MenuItem>
 
             <MenuItem
-              label={"font-size"}
+              label="font-size"
               name="font size"
-              value={styles["font-size"]}
+              value={styles['font-size']}
             >
               <select
                 name="font-size"
-                value={styles["font-size"]}
+                value={styles['font-size']}
                 id="font-size"
                 onChange={handleChange}
               >
@@ -68,9 +68,9 @@ const ParaEditor = () => {
             </MenuItem>
 
             <MenuItem
-              label={"font-weight"}
+              label="font-weight"
               name="font weight"
-              value={styles["font-weight"] || 400}
+              value={styles['font-weight'] || 400}
             >
               <select
                 name="font-weight"
@@ -84,9 +84,9 @@ const ParaEditor = () => {
             </MenuItem>
 
             <MenuItem
-              label={"line-height"}
+              label="line-height"
               name="line height"
-              value={styles["line-height"] || 400}
+              value={styles['line-height'] || 400}
             >
               <input
                 type="range"
@@ -94,14 +94,14 @@ const ParaEditor = () => {
                 name="line-height"
                 id="line-height"
                 onChange={handleChange}
-                value={styles["line-height"]}
+                value={styles['line-height']}
               />
             </MenuItem>
 
             <MenuItem
-              label={"word-spacing"}
+              label="word-spacing"
               name="word spacing"
-              value={styles["word-spacing"] || 400}
+              value={styles['word-spacing'] || 400}
             >
               <input
                 type="range"
@@ -109,14 +109,14 @@ const ParaEditor = () => {
                 name="word-spacing"
                 id="word-spacing"
                 onChange={handleChange}
-                value={styles["word-spacing"]}
+                value={styles['word-spacing']}
               />
             </MenuItem>
 
             <MenuItem
-              label={"letter-spacing"}
+              label="letter-spacing"
               name="letter spacing"
-              value={styles["letter-spacing"] || 400}
+              value={styles['letter-spacing'] || 400}
             >
               <input
                 type="range"
@@ -125,24 +125,24 @@ const ParaEditor = () => {
                 name="letter-spacing"
                 id="letter-spacing"
                 onChange={handleChange}
-                value={styles["letter-spacing"]}
+                value={styles['letter-spacing']}
               />
             </MenuItem>
           </Menu>
 
           {/* colors */}
-          <Menu title={"Colors"}>
+          <Menu title="Colors">
             <MenuItem
               name="color"
-              label={"color"}
-              value={styles.color || "#000000"}
+              label="color"
+              value={styles.color || '#000000'}
               className=""
             >
               <input
                 type="color"
                 id="color"
                 name="color"
-                value={styles["color"]}
+                value={styles.color}
                 onChange={handleChange}
               />
             </MenuItem>
@@ -155,6 +155,6 @@ const ParaEditor = () => {
       </div>
     </>
   );
-};
+}
 
 export default ParaEditor;

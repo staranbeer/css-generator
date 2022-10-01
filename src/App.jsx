@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import Layout from "./components/layout/Layout";
-import Home from "./components/layout/Home";
-import InputEditor from "./features/InputSlice/InputEditor";
-import ButtonEditor from "./features/buttonSlice/ButtonEditor";
-import ParaEditor from "./features/paraSlice/ParaEditor";
+import Layout from './components/layout/Layout';
+import Home from './components/layout/Home';
+import InputEditor from './features/InputSlice/InputEditor';
+import ButtonEditor from './features/buttonSlice/ButtonEditor';
+import ParaEditor from './features/paraSlice/ParaEditor';
 
-const App = () => {
+function App() {
   const [isFirstTime, setIsFirstTime] = useState(true);
   const showEditor = () => {
     setIsFirstTime(false);
@@ -31,6 +31,6 @@ const App = () => {
       )}
     </div>
   );
-};
+}
 
 export default App;

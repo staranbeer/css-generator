@@ -1,7 +1,7 @@
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header from './Header';
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   return (
     <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Header />
@@ -10,6 +10,6 @@ const Layout = ({ children }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Layout;

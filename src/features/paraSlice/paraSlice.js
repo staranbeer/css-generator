@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const paraSlice = createSlice({
-  name: "para",
+  name: 'para',
 
   initialState: {
     styles: {
-      "font-size": "16",
-      "font-family": "Roboto",
-      "font-weight": 300,
-      "line-height": 32,
-      "letter-spacing": 2,
-      "word-spacing": 2,
-      color: "#333333",
+      'font-size': '16',
+      'font-family': 'Roboto',
+      'font-weight': 300,
+      'line-height': 32,
+      'letter-spacing': 2,
+      'word-spacing': 2,
+      color: '#333333',
     },
   },
 

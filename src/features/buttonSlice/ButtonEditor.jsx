@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeButtonStyles } from "./buttonSlice";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeButtonStyles } from './buttonSlice';
 
-import Menu, { MenuItem } from "../../components/utils/Menu";
-import ButtonResult from "./ButtonResult";
+import Menu, { MenuItem } from '../../components/utils/Menu';
+import ButtonResult from './ButtonResult';
 
-const ButtonEditor = () => {
+function ButtonEditor() {
   const { styles } = useSelector((state) => state.button);
   const dispatch = useDispatch();
 
@@ -29,11 +29,11 @@ const ButtonEditor = () => {
         <div className="max-w-2xl mx-auto my-12 space-y-3">
           {/* text */}
 
-          <Menu isActive={true} title={"Text"}>
+          <Menu isActive title="Text">
             <MenuItem
-              label={"font-weight"}
+              label="font-weight"
               name="font weight"
-              value={styles["font-weight"] || 400}
+              value={styles['font-weight'] || 400}
             >
               <select
                 name="font-weight"
@@ -47,13 +47,13 @@ const ButtonEditor = () => {
             </MenuItem>
 
             <MenuItem
-              label={"font-size"}
+              label="font-size"
               name="font size"
-              value={styles["font-size"]}
+              value={styles['font-size']}
             >
               <select
                 name="font-size"
-                value={styles["font-size"]}
+                value={styles['font-size']}
                 id="font-size"
                 onChange={handleChange}
               >
@@ -71,16 +71,16 @@ const ButtonEditor = () => {
 
           {/* padding */}
 
-          <Menu title={"Padding"}>
+          <Menu title="Padding">
             <MenuItem
-              name={"paddingX"}
+              name="paddingX"
               label="paddingX"
-              value={styles["paddingX"]}
+              value={styles.paddingX}
             >
               <input
                 type="range"
                 max="48"
-                value={styles["paddingX"]}
+                value={styles.paddingX}
                 name="paddingX"
                 id="paddingX"
                 onChange={handleChange}
@@ -88,14 +88,14 @@ const ButtonEditor = () => {
             </MenuItem>
 
             <MenuItem
-              name={"paddingY"}
+              name="paddingY"
               label="paddingY"
-              value={styles["paddingY"]}
+              value={styles.paddingY}
             >
               <input
                 max="48"
                 type="range"
-                value={styles["paddingY"]}
+                value={styles.paddingY}
                 name="paddingY"
                 id="paddingY"
                 onChange={handleChange}
@@ -104,70 +104,70 @@ const ButtonEditor = () => {
           </Menu>
 
           {/* colors */}
-          <Menu title={"Colors"}>
+          <Menu title="Colors">
             <MenuItem
               name="color"
-              label={"color"}
-              value={styles.color || "#000000"}
+              label="color"
+              value={styles.color || '#000000'}
               className=""
             >
               <input
                 type="color"
                 id="color"
                 name="color"
-                value={styles["color"]}
+                value={styles.color}
                 onChange={handleChange}
               />
             </MenuItem>
             <MenuItem
               name="background color"
-              value={styles["background-color"] || "#ffffff"}
-              label={"background-color"}
+              value={styles['background-color'] || '#ffffff'}
+              label="background-color"
             >
               <input
                 id="background-color"
                 type="color"
                 name="background-color"
-                value={styles["background-color"]}
+                value={styles['background-color']}
                 onChange={handleChange}
               />
             </MenuItem>
           </Menu>
           {/* border */}
 
-          <Menu title={"Border"}>
+          <Menu title="Border">
             <MenuItem
               name="border color"
               label="border-color"
-              value={styles["border-color"]}
+              value={styles['border-color']}
             >
               <input
                 type="color"
                 id="border-color"
                 name="border-color"
-                value={styles["border-color"]}
+                value={styles['border-color']}
                 onChange={handleChange}
               />
             </MenuItem>
             <MenuItem
-              label={"border-width"}
-              name={"border-width"}
-              value={styles["border-width"]}
+              label="border-width"
+              name="border-width"
+              value={styles['border-width']}
             >
               <input
                 id="border-width"
                 type="range"
                 max="10"
                 name="border-width"
-                value={styles["border-width"]}
+                value={styles['border-width']}
                 onChange={handleChange}
               />
             </MenuItem>
 
             <MenuItem
-              label={"border-type"}
+              label="border-type"
               name="border type"
-              value={styles["border-type"]}
+              value={styles['border-type']}
             >
               <select
                 name="border-type"
@@ -181,24 +181,24 @@ const ButtonEditor = () => {
             </MenuItem>
             <MenuItem
               label="border-radius"
-              name={"Border radius"}
-              value={styles["border-radius"]}
+              name="Border radius"
+              value={styles['border-radius']}
             >
               <input
                 id="border-radius"
                 type="range"
                 max="60"
                 name="border-radius"
-                value={styles["border-radius"]}
+                value={styles['border-radius']}
                 onChange={handleChange}
               />
             </MenuItem>
           </Menu>
-          <Menu title={"Shadow"}>
-            <MenuItem name={"box shadow"} label="box-shadow" value={""}>
+          <Menu title="Shadow">
+            <MenuItem name="box shadow" label="box-shadow" value="">
               <select
                 name="box-shadow"
-                value={styles["box-shadow"] || "small"}
+                value={styles['box-shadow'] || 'small'}
                 id="box-shadow"
                 onChange={handleChange}
               >
@@ -223,6 +223,6 @@ const ButtonEditor = () => {
       </div>
     </>
   );
-};
+}
 
 export default ButtonEditor;
