@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../../components/utils/Modal';
 import deriveStyles from '../../lib/deriveStyles';
 
-function ParaResult() {
+const ParaResult = () => {
   const { styles } = useSelector((state) => state.para);
   const [isModalOpen, setModalOpen] = useState(false);
   const [fontLink, setFontLink] = useState('');
@@ -145,6 +145,6 @@ function ParaResult() {
       )}
     </>
   );
-}
+};
 
 export default ParaResult;

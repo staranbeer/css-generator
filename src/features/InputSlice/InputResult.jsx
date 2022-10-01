@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../../components/utils/Modal';
 import deriveStyles from '../../lib/deriveStyles';
 
-function InputResult() {
+const InputResult = () => {
   const { styles } = useSelector((state) => state.input);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -94,6 +94,6 @@ function InputResult() {
       )}
     </>
   );
-}
+};
 
 export default InputResult;

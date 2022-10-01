@@ -5,7 +5,7 @@ import { changeButtonStyles } from './buttonSlice';
 import Menu, { MenuItem } from '../../components/utils/Menu';
 import ButtonResult from './ButtonResult';
 
-function ButtonEditor() {
+const ButtonEditor = () => {
   const { styles } = useSelector((state) => state.button);
   const dispatch = useDispatch();
 
@@ -223,6 +223,6 @@ function ButtonEditor() {
       </div>
     </>
   );
-}
+};
 
 export default ButtonEditor;

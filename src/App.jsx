@@ -7,7 +7,7 @@ import InputEditor from './features/InputSlice/InputEditor';
 import ButtonEditor from './features/buttonSlice/ButtonEditor';
 import ParaEditor from './features/paraSlice/ParaEditor';
 
-function App() {
+const App = () => {
   const [isFirstTime, setIsFirstTime] = useState(true);
   const showEditor = () => {
     setIsFirstTime(false);
@@ -31,6 +31,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

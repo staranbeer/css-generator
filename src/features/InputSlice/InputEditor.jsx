@@ -4,7 +4,7 @@ import Menu, { MenuItem } from '../../components/utils/Menu';
 import InputResult from './InputResult';
 import { changeInputStyles } from './inputSlice';
 
-function InputEditor() {
+const InputEditor = () => {
   const { styles } = useSelector((state) => state.input);
   const dispatch = useDispatch();
 
@@ -222,6 +222,6 @@ function InputEditor() {
       </div>
     </>
   );
-}
+};
 
 export default InputEditor;

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../../components/utils/Modal';
 import deriveStyles from '../../lib/deriveStyles';
 
-function ButtonResult() {
+const ButtonResult = () => {
   const { styles } = useSelector((state) => state.button);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -43,7 +43,7 @@ function ButtonResult() {
     <>
       <div className="overflow-auto">
         <div className="min-w-[400px] min-h-[300px] grid place-items-center bg-gray-100">
-          <button className="button" type="button">style Me!</button>
+          <div className="button">style Me!</div>
         </div>
         <button
           type="button"
@@ -90,6 +90,6 @@ function ButtonResult() {
       )}
     </>
   );
-}
+};
 
 export default ButtonResult;

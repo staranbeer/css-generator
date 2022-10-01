@@ -2,29 +2,25 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi';
 
-export function MenuItem({
+export const MenuItem = ({
   label, name, value, children,
-}) {
-  return (
-    <div>
-      <div className="flex items-center justify-between">
-        <label htmlFor={label}>{name}</label>
-        <div className="text-blue-500 font-medium">{value}</div>
-      </div>
-      {children}
+}) => (
+  <div>
+    <div className="flex items-center justify-between">
+      <label htmlFor={label}>{name}</label>
+      <div className="text-blue-500 font-medium">{value}</div>
     </div>
-  );
-}
+    {children}
+  </div>
+);
 
-function MenuItems({ children }) {
-  return (
-    <div className="grid mt-2 gap-2 sm:gap-8 md:gap-12 items-start  sm:grid-cols-2 mb-10">
-      {children}
-    </div>
-  );
-}
+const MenuItems = ({ children }) => (
+  <div className="grid mt-2 gap-2 sm:gap-8 md:gap-12 items-start  sm:grid-cols-2 mb-10">
+    {children}
+  </div>
+);
 
-function Menu({ title, children, isActive = false }) {
+const Menu = ({ title, children, isActive = false }) => {
   const [isOpen, setIsOpen] = useState(isActive);
 
   const handleClick = () => {
@@ -57,6 +53,6 @@ function Menu({ title, children, isActive = false }) {
       </motion.div>
     </>
   );
-}
+};
 
 export default Menu;

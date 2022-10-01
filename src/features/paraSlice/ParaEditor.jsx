@@ -4,7 +4,7 @@ import Menu, { MenuItem } from '../../components/utils/Menu';
 import { changeParaStyles } from './paraSlice';
 import ParaResult from './ParaResult';
 
-function ParaEditor() {
+const ParaEditor = () => {
   const { styles } = useSelector((state) => state.para);
   const dispatch = useDispatch();
 
@@ -155,6 +155,6 @@ function ParaEditor() {
       </div>
     </>
   );
-}
+};
 
 export default ParaEditor;
