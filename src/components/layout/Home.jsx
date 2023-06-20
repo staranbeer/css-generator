@@ -7,7 +7,7 @@ const Home = ({ showEditor }) => (
     <div className="grid grid-cols-2">
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-xl text-center ">
-          Design your HTML elements without directly writing any CSS!
+        Design your HTML elements without writing any CSS code!
         </h1>
         <Link
           to="/editor/button"
